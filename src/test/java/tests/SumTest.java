@@ -21,20 +21,20 @@ public class SumTest extends BaseTest{
     @DataProvider(name = "Numbers for addition")
     public Object[][] numbersForAddition() {
         return new Object[][] {
-                {40, 30},
-                {20, 50},
-                {35, 35},
-                {69, 1},
-                {0, 70},
-                {160, -90},
-                {22, 48},
-                {61, 9},
+                {40, 30, 70},
+                {19.5, 50.5, 70.0},
+                {35.0, 35.0, 70},
+                {69.3, 1.5, 70.8},
+                {0.1, 20, 20.1},
+                {160.0, -90.0, 70.0},
+                {22.7, 10.7, 33.4},
+                {61, 9, 70},
         };
     }
 
     @Test(description = "This test checks the addition of different numbers.", dataProvider = "Numbers for addition", priority = 1)
-    public void checkSumOfDifferentNumbers(double x, double y) {
+    public void checkSumOfDifferentNumbers(double x, double y, double expectedResult) {
         double result = calculator.getSum(x, y);
-        Assert.assertEquals(result, 70);
+        Assert.assertEquals(result, expectedResult);
     }
 }

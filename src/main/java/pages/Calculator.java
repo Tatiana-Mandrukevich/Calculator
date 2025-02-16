@@ -2,9 +2,7 @@ package pages;
 
 public class Calculator {
 
-    public Calculator() {
-
-    }
+    public Calculator() {}
 
     public double getSum(double x, double y) {
         double sum = x + y;
@@ -25,6 +23,9 @@ public class Calculator {
     }
 
     public double getDivision(double x, double y) {
+        if (y == 0) {
+            throw new ArithmeticException("Деление на ноль недопустимо");
+        }
         double division = x / y;
         System.out.println("The result of division: " + division);
         return division;

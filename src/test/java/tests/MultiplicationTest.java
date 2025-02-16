@@ -21,16 +21,18 @@ public class MultiplicationTest extends BaseTest{
     @DataProvider(name = "Numbers for multiplication")
     public Object[][] numbersForMultiplication() {
         return new Object[][] {
-                {2, 15},
-                {1, 30},
-                {10, 3},
-                {5, 6},
+                {2.0, 15.0, 30.0},
+                {1, 30, 30},
+                {10, 3, 30},
+                {5, 6, 30},
+                {5.5, 7.25, 39.875},
+                {0.3, 10.0, 3.0},
         };
     }
 
     @Test(description = "This test checks the multiplication of different numbers.", dataProvider = "Numbers for multiplication", priority = 0)
-    public void checkMultiplicationOfDifferentNumbers(double x, double y) {
+    public void checkMultiplicationOfDifferentNumbers(double x, double y, double expectedResult) {
         double result = calculator.getMultiplication(x, y);
-        Assert.assertEquals(result, 30);
+        Assert.assertEquals(result, expectedResult);
     }
 }
